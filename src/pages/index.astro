@@ -2,26 +2,26 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<BaseLayout title="Kenya Research Guidance Hub" description="Clear, practical guidance for ethical research and regulatory compliance in Kenya">
+<BaseLayout title="Veritas GRC | Advancing Integrity in Clinical Research" description="Expert consulting for clinical research compliance, audit readiness, CAPA management, and regulatory affairs.">
   <main class="homepage">
     <section class="hero">
-      <h1>Kenya One‑Stop Research Guide</h1>
-      <p class="tagline">Your plain‑English pathway from research idea to NACOSTI permit.</p>
-      <a href="/blog" class="cta-button">Start Here →</a>
+      <h1>Veritas GRC</h1>
+      <p class="tagline">Advancing Integrity in Clinical Research</p>
+      <a href="/services" class="cta-button">Explore Services →</a>
     </section>
 
     <section class="features">
       <div class="feature">
-        <h2>Step‑by‑Step Guidance</h2>
-        <p>IRB approval → County clearance → NACOSTI. No confusion, no missed steps.</p>
+        <h2>Audit & Inspection Readiness</h2>
+        <p>Proactive preparation for regulatory audits (FDA, EMA, MHRA, NACOSTI). Mock audits, gap analyses, and corrective action planning.</p>
       </div>
       <div class="feature">
-        <h2>Regulatory Bodies</h2>
-        <p>Clear explanations of NACOSTI, KNH/UoN ERC, Ministry of Health, and more.</p>
+        <h2>CAPA Management</h2>
+        <p>Root cause analysis, effective corrective/preventive actions, and closure verification to ensure sustainable compliance.</p>
       </div>
       <div class="feature">
-        <h2>Downloadable Templates</h2>
-        <p>Informed consent forms, checklists, and MTA templates in English and Swahili.</p>
+        <h2>Regulatory Strategy</h2>
+        <p>Navigating clinical trial approvals, ethics committees, and local requirements (NACOSTI, IRBs, MoH) with confidence.</p>
       </div>
     </section>
   </main>
@@ -41,22 +41,25 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     margin-bottom: 3rem;
   }
   h1 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
     color: #1a3e6f;
+    letter-spacing: -0.02em;
   }
   .tagline {
-    font-size: 1.25rem;
+    font-size: 1.35rem;
     margin-bottom: 2rem;
     color: #2c5a9e;
+    font-weight: 500;
   }
   .cta-button {
     background: #1a3e6f;
     color: white;
-    padding: 0.75rem 1.5rem;
-    border-radius: 0.5rem;
+    padding: 0.75rem 2rem;
+    border-radius: 2rem;
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 600;
+    transition: background 0.2s;
   }
   .cta-button:hover {
     background: #0f2c4f;
@@ -69,16 +72,25 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   }
   .feature {
     flex: 1;
-    min-width: 200px;
+    min-width: 240px;
     background: white;
     padding: 1.5rem;
-    border-radius: 0.75rem;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    border-radius: 1rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
     border: 1px solid #e0e7f0;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .feature:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.1);
   }
   .feature h2 {
     font-size: 1.5rem;
     margin-top: 0;
     color: #1a3e6f;
+  }
+  .feature p {
+    color: #2d3e5f;
+    line-height: 1.5;
   }
 </style>
