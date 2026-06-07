@@ -1,1 +1,24 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
 
+<BaseLayout title="Veritas GRC Ethics | Research Ethics Consulting" description="Expert research ethics consultations, IRB submissions, and ethical oversight for clinical trials.">
+  <main class="service-page">
+    <h1>Veritas GRC Ethics</h1>
+    <p>We provide comprehensive ethics support for clinical research, ensuring your studies meet the highest standards of integrity and regulatory compliance.</p>
+    <h2>Our Services</h2>
+    <ul>
+      <li>Research ethics consultations</li>
+      <li>IRB submission preparation and review</li>
+      <li>Ethical oversight for clinical trials</li>
+      <li>Community engagement and informed consent guidance</li>
+    </ul>
+    <a href="/contact" class="cta">Contact us for ethics support →</a>
+  </main>
+</BaseLayout>
+
+<style>
+  .service-page { max-width: 800px; margin: 2rem auto; padding: 2rem; }
+  h1 { color: #1a3e6f; }
+  .cta { display: inline-block; margin-top: 2rem; background: #1a3e6f; color: white; padding: 0.75rem 1.5rem; border-radius: 2rem; text-decoration: none; }
+</style>
