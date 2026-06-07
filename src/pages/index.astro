@@ -1,196 +1,130 @@
 ---
-// src/components/Header/StaticHeader.astro
-import { Icon } from "astro-icon/components";
-import DarkModeToggle from "@components/DarkModeToggle/DarkModeToggle.astro";
+import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<header id="cs-navigation">
-  <div class="cs-container">
-    <!-- Logo / Brand -->
-    <a href="/" class="cs-logo" aria-label="Veritas GRC home page">
-      <div class="cs-brand">
-        <span class="cs-brand-name">Veritas GRC</span>
-        <span class="cs-tagline">Advancing Integrity in Clinical Research</span>
+<BaseLayout title="Veritas GRC | Advancing Integrity in Clinical Research" description="Expert consulting for clinical research compliance, audit readiness, CAPA management, and regulatory affairs.">
+  <main class="homepage">
+    <section class="hero">
+      <h1>Veritas GRC</h1>
+      <p class="tagline">Advancing Integrity in Clinical Research</p>
+      <a href="/contact" class="cta-button">Contact Us →</a>
+    </section>
+
+    <section class="divisions">
+      <h2 class="divisions-heading">Our Service Divisions</h2>
+      <div class="divisions-grid">
+        <div class="division-card">
+          <h3>Veritas GRC Ethics</h3>
+          <p>Research ethics consultations, IRB submissions, and ethical oversight for clinical trials.</p>
+        </div>
+        <div class="division-card">
+          <h3>Veritas GRC Academy</h3>
+          <p>Training programs, certifications, and workshops on GCP, regulatory compliance, and research integrity.</p>
+        </div>
+        <div class="division-card">
+          <h3>Veritas GRC Digital</h3>
+          <p>eClinical solutions, digital QMS, and software tools for compliant data management.</p>
+        </div>
+        <div class="division-card">
+          <h3>Veritas GRC Audits</h3>
+          <p>Independent audits, mock inspections, and vendor compliance assessments.</p>
+        </div>
+        <div class="division-card">
+          <h3>Veritas GRC Analytics</h3>
+          <p>Risk-based monitoring, data analytics, and performance metrics for clinical operations.</p>
+        </div>
       </div>
-    </a>
+    </section>
 
-    <!-- Desktop Navigation -->
-    <nav class="cs-nav" aria-label="Primary">
-      <ul class="cs-nav-list">
-        <li><a href="/research" class="cs-nav-link">Research</a></li>
-        <li><a href="/guides" class="cs-nav-link">Guides</a></li>
-        <li><a href="/about" class="cs-nav-link">About</a></li>
-      </ul>
-    </nav>
-
-    <!-- Right side items -->
-    <div class="cs-right-group">
-      <DarkModeToggle />
-      <!-- Mobile menu toggle button -->
-      <button class="cs-toggle" aria-label="menu" aria-expanded="false">
-        <span class="cs-toggle-icon"></span>
-      </button>
-    </div>
-  </div>
-
-  <!-- Mobile menu (hidden by default) -->
-  <div class="cs-mobile-menu" hidden>
-    <nav aria-label="Mobile">
-      <ul class="cs-mobile-nav-list">
-        <li><a href="/research">Research</a></li>
-        <li><a href="/guides">Guides</a></li>
-        <li><a href="/about">About</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
+    <!-- Optional: you can keep the old features section below if needed, but I've replaced it -->
+  </main>
+</BaseLayout>
 
 <style>
-  /* Reset / base */
-  .cs-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 2rem;
-    max-width: 1280px;
+  .homepage {
+    max-width: 1200px;
     margin: 0 auto;
+    padding: 2rem;
   }
-
-  /* Brand styling */
-  .cs-logo {
-    text-decoration: none;
+  .hero {
+    text-align: center;
+    padding: 3rem 1rem;
+    background: #f0f7ff;
+    border-radius: 1rem;
+    margin-bottom: 3rem;
   }
-  .cs-brand {
-    display: flex;
-    flex-direction: column;
-    line-height: 1.2;
-  }
-  .cs-brand-name {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--text-color, #1a2c3e);
+  h1 {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+    color: #1a3e6f;
     letter-spacing: -0.02em;
   }
-  .cs-tagline {
-    font-size: 0.75rem;
+  .tagline {
+    font-size: 1.35rem;
+    margin-bottom: 2rem;
+    color: #2c5a9e;
     font-weight: 500;
-    color: var(--text-muted, #4a627a);
-    letter-spacing: 0.02em;
   }
-  /* Dark mode variables (example) */
-  :root {
-    --text-color: #1a2c3e;
-    --text-muted: #4a627a;
+  .cta-button {
+    background: #1a3e6f;
+    color: white;
+    padding: 0.75rem 2rem;
+    border-radius: 2rem;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.2s;
   }
-  :root.dark {
-    --text-color: #f0f4f8;
-    --text-muted: #b0c4de;
+  .cta-button:hover {
+    background: #0f2c4f;
   }
-
-  /* Desktop navigation */
-  .cs-nav-list {
+  .divisions-heading {
+    text-align: center;
+    font-size: 2rem;
+    color: #1a3e6f;
+    margin-bottom: 2rem;
+  }
+  .divisions-grid {
     display: flex;
+    flex-wrap: wrap;
     gap: 2rem;
-    list-style: none;
+    justify-content: center;
+  }
+  .division-card {
+    flex: 1 1 280px;
+    background: white;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    border: 1px solid #e0e7f0;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .division-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+  }
+  .division-card h3 {
+    font-size: 1.4rem;
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+    color: #1a3e6f;
+  }
+  .division-card p {
+    color: #2d3e5f;
+    line-height: 1.5;
     margin: 0;
-    padding: 0;
   }
-  .cs-nav-link {
-    text-decoration: none;
-    font-weight: 500;
-    color: var(--text-color, #1a2c3e);
-    transition: color 0.2s;
-  }
-  .cs-nav-link:hover {
-    color: #2c7da0;
-  }
-
-  /* Right group */
-  .cs-right-group {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-  }
-
-  /* Mobile toggle button */
-  .cs-toggle {
-    display: none;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0.5rem;
-  }
-  .cs-toggle-icon {
-    display: block;
-    width: 24px;
-    height: 2px;
-    background: currentColor;
-    position: relative;
-  }
-  .cs-toggle-icon::before,
-  .cs-toggle-icon::after {
-    content: '';
-    position: absolute;
-    width: 24px;
-    height: 2px;
-    background: currentColor;
-    left: 0;
-  }
-  .cs-toggle-icon::before {
-    top: -8px;
-  }
-  .cs-toggle-icon::after {
-    bottom: -8px;
-  }
-
-  /* Mobile menu */
-  .cs-mobile-menu {
-    background: var(--bg-mobile, #ffffff);
-    border-top: 1px solid #e2e8f0;
-    padding: 1rem;
-  }
-  .cs-mobile-nav-list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-  .cs-mobile-nav-list a {
-    text-decoration: none;
-    color: var(--text-color, #1a2c3e);
-    font-weight: 500;
-    display: block;
-    padding: 0.5rem 0;
-  }
-
-  /* Responsive breakpoint */
   @media (max-width: 768px) {
-    .cs-nav {
-      display: none;
+    .homepage {
+      padding: 1rem;
     }
-    .cs-toggle {
-      display: block;
+    h1 {
+      font-size: 2rem;
     }
-    .cs-brand-name {
-      font-size: 1.25rem;
+    .tagline {
+      font-size: 1rem;
     }
-    .cs-tagline {
-      font-size: 0.65rem;
+    .divisions-heading {
+      font-size: 1.5rem;
     }
   }
 </style>
-
-<script>
-  // Mobile menu toggle
-  const toggleBtn = document.querySelector('.cs-toggle');
-  const mobileMenu = document.querySelector('.cs-mobile-menu');
-  if (toggleBtn && mobileMenu) {
-    toggleBtn.addEventListener('click', () => {
-      const expanded = toggleBtn.getAttribute('aria-expanded') === 'true';
-      toggleBtn.setAttribute('aria-expanded', !expanded);
-      mobileMenu.hidden = !mobileMenu.hidden;
-    });
-  }
-</script>
