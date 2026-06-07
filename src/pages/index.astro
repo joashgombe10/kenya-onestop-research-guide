@@ -17,21 +17,9 @@ import DarkModeToggle from "@components/DarkModeToggle/DarkModeToggle.astro";
     <nav class="desktop-nav" aria-label="Main">
       <ul class="nav-list">
         <li><a href="/" class="nav-link">Home</a></li>
-        <li class="dropdown">
-          <button class="dropdown-toggle" aria-expanded="false">
-            Services
-            <span class="dropdown-arrow">▼</span>
-          </button>
-          <ul class="dropdown-menu">
-            <li><a href="/services/ethics" class="dropdown-link">Veritas GRC Ethics</a></li>
-            <li><a href="/services/academy" class="dropdown-link">Veritas GRC Academy</a></li>
-            <li><a href="/services/digital" class="dropdown-link">Veritas GRC Digital</a></li>
-            <li><a href="/services/audits" class="dropdown-link">Veritas GRC Audits</a></li>
-            <li><a href="/services/analytics" class="dropdown-link">Veritas GRC Analytics</a></li>
-          </ul>
-        </li>
+        <li><a href="/research" class="nav-link">Research</a></li>
+        <li><a href="/guides" class="nav-link">Guides</a></li>
         <li><a href="/about" class="nav-link">About</a></li>
-        <li><a href="/contact" class="nav-link">Contact</a></li>
       </ul>
     </nav>
 
@@ -48,27 +36,14 @@ import DarkModeToggle from "@components/DarkModeToggle/DarkModeToggle.astro";
   <div class="mobile-nav" hidden>
     <ul class="mobile-nav-list">
       <li><a href="/" class="mobile-nav-link">Home</a></li>
-      <li class="mobile-dropdown">
-        <button class="mobile-dropdown-toggle" aria-expanded="false">
-          Services
-          <span class="mobile-dropdown-arrow">▼</span>
-        </button>
-        <ul class="mobile-dropdown-menu" hidden>
-          <li><a href="/services/ethics" class="mobile-nav-link">Veritas GRC Ethics</a></li>
-          <li><a href="/services/academy" class="mobile-nav-link">Veritas GRC Academy</a></li>
-          <li><a href="/services/digital" class="mobile-nav-link">Veritas GRC Digital</a></li>
-          <li><a href="/services/audits" class="mobile-nav-link">Veritas GRC Audits</a></li>
-          <li><a href="/services/analytics" class="mobile-nav-link">Veritas GRC Analytics</a></li>
-        </ul>
-      </li>
+      <li><a href="/research" class="mobile-nav-link">Research</a></li>
+      <li><a href="/guides" class="mobile-nav-link">Guides</a></li>
       <li><a href="/about" class="mobile-nav-link">About</a></li>
-      <li><a href="/contact" class="mobile-nav-link">Contact</a></li>
     </ul>
   </div>
 </header>
 
 <style>
-  /* Base header styling */
   .dynamic-header {
     background: var(--header-bg, #ffffff);
     border-bottom: 1px solid var(--border-color, #e2e8f0);
@@ -86,7 +61,6 @@ import DarkModeToggle from "@components/DarkModeToggle/DarkModeToggle.astro";
     padding: 0.75rem 1.5rem;
   }
 
-  /* Brand styling */
   .brand-link {
     text-decoration: none;
   }
@@ -108,7 +82,6 @@ import DarkModeToggle from "@components/DarkModeToggle/DarkModeToggle.astro";
     letter-spacing: 0.3px;
   }
 
-  /* Dark mode support */
   :root {
     --header-bg: #ffffff;
     --border-color: #e2e8f0;
@@ -117,7 +90,6 @@ import DarkModeToggle from "@components/DarkModeToggle/DarkModeToggle.astro";
     --nav-link: #1e293b;
     --nav-link-hover: #2c7da0;
     --mobile-bg: #ffffff;
-    --dropdown-bg: #ffffff;
   }
   .dark-mode {
     --header-bg: #1e293b;
@@ -127,10 +99,8 @@ import DarkModeToggle from "@components/DarkModeToggle/DarkModeToggle.astro";
     --nav-link: #cbd5e1;
     --nav-link-hover: #81e6d9;
     --mobile-bg: #1e293b;
-    --dropdown-bg: #1e293b;
   }
 
-  /* Desktop navigation */
   .desktop-nav {
     display: flex;
   }
@@ -140,7 +110,6 @@ import DarkModeToggle from "@components/DarkModeToggle/DarkModeToggle.astro";
     list-style: none;
     margin: 0;
     padding: 0;
-    align-items: center;
   }
   .nav-link {
     text-decoration: none;
@@ -152,74 +121,12 @@ import DarkModeToggle from "@components/DarkModeToggle/DarkModeToggle.astro";
     color: var(--nav-link-hover, #2c7da0);
   }
 
-  /* Dropdown styles (desktop) */
-  .dropdown {
-    position: relative;
-  }
-  .dropdown-toggle {
-    background: none;
-    border: none;
-    font-weight: 500;
-    color: var(--nav-link, #1e293b);
-    cursor: pointer;
-    font-size: inherit;
-    font-family: inherit;
-    padding: 0;
-    display: flex;
-    align-items: center;
-    gap: 0.25rem;
-  }
-  .dropdown-toggle:hover {
-    color: var(--nav-link-hover, #2c7da0);
-  }
-  .dropdown-arrow {
-    font-size: 0.7rem;
-    transition: transform 0.2s;
-  }
-  .dropdown:hover .dropdown-arrow {
-    transform: rotate(180deg);
-  }
-  .dropdown-menu {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background: var(--dropdown-bg, #ffffff);
-    border: 1px solid var(--border-color, #e2e8f0);
-    border-radius: 0.5rem;
-    padding: 0.5rem 0;
-    min-width: 200px;
-    list-style: none;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.2s, visibility 0.2s;
-    z-index: 101;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  }
-  .dropdown:hover .dropdown-menu {
-    opacity: 1;
-    visibility: visible;
-  }
-  .dropdown-link {
-    display: block;
-    padding: 0.5rem 1rem;
-    text-decoration: none;
-    color: var(--nav-link, #1e293b);
-    font-weight: normal;
-    white-space: nowrap;
-  }
-  .dropdown-link:hover {
-    background: var(--border-color, #e2e8f0);
-    color: var(--nav-link-hover, #2c7da0);
-  }
-
-  /* Header actions */
   .header-actions {
     display: flex;
     align-items: center;
     gap: 1rem;
   }
 
-  /* Mobile toggle button */
   .mobile-toggle {
     display: none;
     background: none;
@@ -251,7 +158,6 @@ import DarkModeToggle from "@components/DarkModeToggle/DarkModeToggle.astro";
     bottom: -8px;
   }
 
-  /* Mobile navigation panel */
   .mobile-nav {
     background: var(--mobile-bg, #ffffff);
     border-top: 1px solid var(--border-color, #e2e8f0);
@@ -275,43 +181,7 @@ import DarkModeToggle from "@components/DarkModeToggle/DarkModeToggle.astro";
   .mobile-nav-link:hover {
     color: var(--nav-link-hover, #2c7da0);
   }
-  /* Mobile dropdown */
-  .mobile-dropdown {
-    margin: 0;
-  }
-  .mobile-dropdown-toggle {
-    background: none;
-    border: none;
-    font-weight: 500;
-    color: var(--nav-link, #1e293b);
-    cursor: pointer;
-    font-size: inherit;
-    font-family: inherit;
-    padding: 0.5rem 0;
-    display: flex;
-    align-items: center;
-    gap: 0.25rem;
-    width: 100%;
-    text-align: left;
-  }
-  .mobile-dropdown-arrow {
-    font-size: 0.7rem;
-    transition: transform 0.2s;
-  }
-  .mobile-dropdown-menu {
-    list-style: none;
-    margin: 0.5rem 0 0 1rem;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-  .mobile-dropdown-menu .mobile-nav-link {
-    padding-left: 1rem;
-    font-weight: normal;
-  }
 
-  /* Responsive breakpoint */
   @media (max-width: 768px) {
     .desktop-nav {
       display: none;
@@ -329,7 +199,6 @@ import DarkModeToggle from "@components/DarkModeToggle/DarkModeToggle.astro";
 </style>
 
 <script>
-  // Mobile menu toggle (main hamburger)
   const toggleBtn = document.querySelector('.mobile-toggle');
   const mobileNav = document.querySelector('.mobile-nav');
   if (toggleBtn && mobileNav) {
@@ -337,35 +206,6 @@ import DarkModeToggle from "@components/DarkModeToggle/DarkModeToggle.astro";
       const expanded = toggleBtn.getAttribute('aria-expanded') === 'true';
       toggleBtn.setAttribute('aria-expanded', !expanded);
       mobileNav.hidden = !mobileNav.hidden;
-    });
-  }
-
-  // Mobile dropdown toggle for Services
-  const mobileDropdownToggle = document.querySelector('.mobile-dropdown-toggle');
-  const mobileDropdownMenu = document.querySelector('.mobile-dropdown-menu');
-  if (mobileDropdownToggle && mobileDropdownMenu) {
-    mobileDropdownToggle.addEventListener('click', () => {
-      const expanded = mobileDropdownToggle.getAttribute('aria-expanded') === 'true';
-      mobileDropdownToggle.setAttribute('aria-expanded', !expanded);
-      mobileDropdownMenu.hidden = !mobileDropdownMenu.hidden;
-      // rotate arrow
-      const arrow = mobileDropdownToggle.querySelector('.mobile-dropdown-arrow');
-      if (arrow) {
-        arrow.style.transform = expanded ? 'rotate(0deg)' : 'rotate(180deg)';
-      }
-    });
-  }
-
-  // Desktop dropdown arrow rotation on hover
-  const dropdownToggle = document.querySelector('.dropdown-toggle');
-  if (dropdownToggle) {
-    const dropdown = dropdownToggle.closest('.dropdown');
-    const arrow = dropdownToggle.querySelector('.dropdown-arrow');
-    dropdown.addEventListener('mouseenter', () => {
-      if (arrow) arrow.style.transform = 'rotate(180deg)';
-    });
-    dropdown.addEventListener('mouseleave', () => {
-      if (arrow) arrow.style.transform = 'rotate(0deg)';
     });
   }
 </script>
