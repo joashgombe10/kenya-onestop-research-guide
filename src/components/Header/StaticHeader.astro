@@ -6,9 +6,12 @@ import DarkModeToggle from "@components/DarkModeToggle/DarkModeToggle.astro";
 
 <header id="cs-navigation">
   <div class="cs-container">
-    <!-- Logo -->
-    <a href="/" class="cs-logo" aria-label="Return to Kenya OneStop Research home">
-      <Icon name="logo-black" />
+    <!-- Logo / Brand -->
+    <a href="/" class="cs-logo" aria-label="Veritas GRC home page">
+      <div class="cs-brand">
+        <span class="cs-brand-name">Veritas GRC</span>
+        <span class="cs-tagline">Advancing Integrity in Clinical Research</span>
+      </div>
     </a>
 
     <!-- Desktop Navigation -->
@@ -43,24 +46,126 @@ import DarkModeToggle from "@components/DarkModeToggle/DarkModeToggle.astro";
 </header>
 
 <style>
-  /* Add your responsive styles here */
+  /* Reset / base */
   .cs-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem;
+    padding: 1rem 2rem;
+    max-width: 1280px;
+    margin: 0 auto;
   }
+
+  /* Brand styling */
+  .cs-logo {
+    text-decoration: none;
+  }
+  .cs-brand {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+  }
+  .cs-brand-name {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-color, #1a2c3e);
+    letter-spacing: -0.02em;
+  }
+  .cs-tagline {
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--text-muted, #4a627a);
+    letter-spacing: 0.02em;
+  }
+  /* Dark mode variables (example) */
+  :root {
+    --text-color: #1a2c3e;
+    --text-muted: #4a627a;
+  }
+  :root.dark {
+    --text-color: #f0f4f8;
+    --text-muted: #b0c4de;
+  }
+
+  /* Desktop navigation */
   .cs-nav-list {
     display: flex;
     gap: 2rem;
     list-style: none;
+    margin: 0;
+    padding: 0;
   }
+  .cs-nav-link {
+    text-decoration: none;
+    font-weight: 500;
+    color: var(--text-color, #1a2c3e);
+    transition: color 0.2s;
+  }
+  .cs-nav-link:hover {
+    color: #2c7da0;
+  }
+
+  /* Right group */
+  .cs-right-group {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  /* Mobile toggle button */
   .cs-toggle {
-    display: none; /* hidden on desktop */
+    display: none;
     background: none;
     border: none;
     cursor: pointer;
+    padding: 0.5rem;
   }
+  .cs-toggle-icon {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: currentColor;
+    position: relative;
+  }
+  .cs-toggle-icon::before,
+  .cs-toggle-icon::after {
+    content: '';
+    position: absolute;
+    width: 24px;
+    height: 2px;
+    background: currentColor;
+    left: 0;
+  }
+  .cs-toggle-icon::before {
+    top: -8px;
+  }
+  .cs-toggle-icon::after {
+    bottom: -8px;
+  }
+
+  /* Mobile menu */
+  .cs-mobile-menu {
+    background: var(--bg-mobile, #ffffff);
+    border-top: 1px solid #e2e8f0;
+    padding: 1rem;
+  }
+  .cs-mobile-nav-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .cs-mobile-nav-list a {
+    text-decoration: none;
+    color: var(--text-color, #1a2c3e);
+    font-weight: 500;
+    display: block;
+    padding: 0.5rem 0;
+  }
+
+  /* Responsive breakpoint */
   @media (max-width: 768px) {
     .cs-nav {
       display: none;
@@ -68,11 +173,17 @@ import DarkModeToggle from "@components/DarkModeToggle/DarkModeToggle.astro";
     .cs-toggle {
       display: block;
     }
+    .cs-brand-name {
+      font-size: 1.25rem;
+    }
+    .cs-tagline {
+      font-size: 0.65rem;
+    }
   }
 </style>
 
 <script>
-  // Simple mobile toggle functionality
+  // Mobile menu toggle
   const toggleBtn = document.querySelector('.cs-toggle');
   const mobileMenu = document.querySelector('.cs-mobile-menu');
   if (toggleBtn && mobileMenu) {
