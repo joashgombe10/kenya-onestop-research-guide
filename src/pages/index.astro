@@ -7,23 +7,36 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     <section class="hero">
       <h1>Veritas GRC</h1>
       <p class="tagline">Advancing Integrity in Clinical Research</p>
-      <a href="/services" class="cta-button">Explore Services →</a>
+      <a href="/contact" class="cta-button">Contact Us →</a>
     </section>
 
-    <section class="features">
-      <div class="feature">
-        <h2>Audit & Inspection Readiness</h2>
-        <p>Proactive preparation for regulatory audits (FDA, EMA, MHRA, NACOSTI). Mock audits, gap analyses, and corrective action planning.</p>
-      </div>
-      <div class="feature">
-        <h2>CAPA Management</h2>
-        <p>Root cause analysis, effective corrective/preventive actions, and closure verification to ensure sustainable compliance.</p>
-      </div>
-      <div class="feature">
-        <h2>Regulatory Strategy</h2>
-        <p>Navigating clinical trial approvals, ethics committees, and local requirements (NACOSTI, IRBs, MoH) with confidence.</p>
+    <section class="divisions">
+      <h2 class="divisions-heading">Our Service Divisions</h2>
+      <div class="divisions-grid">
+        <div class="division-card">
+          <h3>Veritas GRC Ethics</h3>
+          <p>Research ethics consultations, IRB submissions, and ethical oversight for clinical trials.</p>
+        </div>
+        <div class="division-card">
+          <h3>Veritas GRC Academy</h3>
+          <p>Training programs, certifications, and workshops on GCP, regulatory compliance, and research integrity.</p>
+        </div>
+        <div class="division-card">
+          <h3>Veritas GRC Digital</h3>
+          <p>eClinical solutions, digital QMS, and software tools for compliant data management.</p>
+        </div>
+        <div class="division-card">
+          <h3>Veritas GRC Audits</h3>
+          <p>Independent audits, mock inspections, and vendor compliance assessments.</p>
+        </div>
+        <div class="division-card">
+          <h3>Veritas GRC Analytics</h3>
+          <p>Risk-based monitoring, data analytics, and performance metrics for clinical operations.</p>
+        </div>
       </div>
     </section>
+
+    <!-- Optional: you can keep the old features section below if needed, but I've replaced it -->
   </main>
 </BaseLayout>
 
@@ -64,15 +77,20 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   .cta-button:hover {
     background: #0f2c4f;
   }
-  .features {
+  .divisions-heading {
+    text-align: center;
+    font-size: 2rem;
+    color: #1a3e6f;
+    margin-bottom: 2rem;
+  }
+  .divisions-grid {
     display: flex;
-    gap: 2rem;
     flex-wrap: wrap;
+    gap: 2rem;
     justify-content: center;
   }
-  .feature {
-    flex: 1;
-    min-width: 240px;
+  .division-card {
+    flex: 1 1 280px;
     background: white;
     padding: 1.5rem;
     border-radius: 1rem;
@@ -80,17 +98,33 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     border: 1px solid #e0e7f0;
     transition: transform 0.2s, box-shadow 0.2s;
   }
-  .feature:hover {
+  .division-card:hover {
     transform: translateY(-4px);
     box-shadow: 0 8px 24px rgba(0,0,0,0.1);
   }
-  .feature h2 {
-    font-size: 1.5rem;
+  .division-card h3 {
+    font-size: 1.4rem;
     margin-top: 0;
+    margin-bottom: 0.75rem;
     color: #1a3e6f;
   }
-  .feature p {
+  .division-card p {
     color: #2d3e5f;
     line-height: 1.5;
+    margin: 0;
+  }
+  @media (max-width: 768px) {
+    .homepage {
+      padding: 1rem;
+    }
+    h1 {
+      font-size: 2rem;
+    }
+    .tagline {
+      font-size: 1rem;
+    }
+    .divisions-heading {
+      font-size: 1.5rem;
+    }
   }
 </style>
