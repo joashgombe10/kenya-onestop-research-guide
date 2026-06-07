@@ -1,195 +1,118 @@
 ---
 // src/components/Header/StaticHeader.astro
-import { Icon } from "astro-icon/components";
 import DarkModeToggle from "@components/DarkModeToggle/DarkModeToggle.astro";
 ---
 
 <header id="cs-navigation">
   <div class="cs-container">
-    <!-- Logo / Brand -->
-    <a href="/" class="cs-logo" aria-label="Veritas GRC home page">
+    <!-- Brand -->
+    <a href="/" class="cs-logo">
       <div class="cs-brand">
-        <span class="cs-brand-name">Veritas GRC</span>
-        <span class="cs-tagline">Advancing Integrity in Clinical Research</span>
+        <div class="cs-brand-name">Veritas GRC</div>
+        <div class="cs-tagline">Advancing Integrity in Clinical Research</div>
       </div>
     </a>
 
-    <!-- Desktop Navigation -->
-    <nav class="cs-nav" aria-label="Primary">
+    <!-- Desktop nav -->
+    <nav class="cs-nav">
       <ul class="cs-nav-list">
-        <li><a href="/research" class="cs-nav-link">Research</a></li>
-        <li><a href="/guides" class="cs-nav-link">Guides</a></li>
-        <li><a href="/about" class="cs-nav-link">About</a></li>
-      </ul>
-    </nav>
-
-    <!-- Right side items -->
-    <div class="cs-right-group">
-      <DarkModeToggle />
-      <!-- Mobile menu toggle button -->
-      <button class="cs-toggle" aria-label="menu" aria-expanded="false">
-        <span class="cs-toggle-icon"></span>
-      </button>
-    </div>
-  </div>
-
-  <!-- Mobile menu (hidden by default) -->
-  <div class="cs-mobile-menu" hidden>
-    <nav aria-label="Mobile">
-      <ul class="cs-mobile-nav-list">
+        <li><a href="/">Home</a></li>
         <li><a href="/research">Research</a></li>
         <li><a href="/guides">Guides</a></li>
         <li><a href="/about">About</a></li>
       </ul>
     </nav>
+
+    <div class="cs-right-group">
+      <DarkModeToggle />
+      <button class="cs-toggle" aria-label="Menu">
+        <span></span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile menu -->
+  <div class="cs-mobile-menu" hidden>
+    <ul class="cs-mobile-nav-list">
+      <li><a href="/">Home</a></li>
+      <li><a href="/research">Research</a></li>
+      <li><a href="/guides">Guides</a></li>
+      <li><a href="/about">About</a></li>
+    </ul>
   </div>
 </header>
 
 <style>
-  /* Reset / base */
   .cs-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 2rem;
-    max-width: 1280px;
+    padding: 1rem;
+    max-width: 1200px;
     margin: 0 auto;
   }
-
-  /* Brand styling */
   .cs-logo {
     text-decoration: none;
   }
-  .cs-brand {
-    display: flex;
-    flex-direction: column;
-    line-height: 1.2;
-  }
   .cs-brand-name {
     font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--text-color, #1a2c3e);
-    letter-spacing: -0.02em;
+    font-weight: bold;
+    color: #1e3a5f;
   }
   .cs-tagline {
     font-size: 0.75rem;
-    font-weight: 500;
-    color: var(--text-muted, #4a627a);
-    letter-spacing: 0.02em;
+    color: #4a6a8b;
   }
-  /* Dark mode variables (example) */
-  :root {
-    --text-color: #1a2c3e;
-    --text-muted: #4a627a;
-  }
-  :root.dark {
-    --text-color: #f0f4f8;
-    --text-muted: #b0c4de;
-  }
-
-  /* Desktop navigation */
   .cs-nav-list {
     display: flex;
-    gap: 2rem;
+    gap: 1.5rem;
     list-style: none;
     margin: 0;
     padding: 0;
   }
-  .cs-nav-link {
+  .cs-nav-list a {
     text-decoration: none;
-    font-weight: 500;
-    color: var(--text-color, #1a2c3e);
-    transition: color 0.2s;
+    color: #1e3a5f;
   }
-  .cs-nav-link:hover {
-    color: #2c7da0;
-  }
-
-  /* Right group */
   .cs-right-group {
     display: flex;
-    align-items: center;
     gap: 1rem;
+    align-items: center;
   }
-
-  /* Mobile toggle button */
   .cs-toggle {
     display: none;
     background: none;
-    border: none;
-    cursor: pointer;
+    border: 1px solid #ccc;
     padding: 0.5rem;
+    cursor: pointer;
   }
-  .cs-toggle-icon {
-    display: block;
-    width: 24px;
-    height: 2px;
-    background: currentColor;
-    position: relative;
-  }
-  .cs-toggle-icon::before,
-  .cs-toggle-icon::after {
-    content: '';
-    position: absolute;
-    width: 24px;
-    height: 2px;
-    background: currentColor;
-    left: 0;
-  }
-  .cs-toggle-icon::before {
-    top: -8px;
-  }
-  .cs-toggle-icon::after {
-    bottom: -8px;
-  }
-
-  /* Mobile menu */
-  .cs-mobile-menu {
-    background: var(--bg-mobile, #ffffff);
-    border-top: 1px solid #e2e8f0;
-    padding: 1rem;
-  }
-  .cs-mobile-nav-list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-  .cs-mobile-nav-list a {
-    text-decoration: none;
-    color: var(--text-color, #1a2c3e);
-    font-weight: 500;
-    display: block;
-    padding: 0.5rem 0;
-  }
-
-  /* Responsive breakpoint */
-  @media (max-width: 768px) {
+  @media (max-width: 700px) {
     .cs-nav {
       display: none;
     }
     .cs-toggle {
       display: block;
     }
-    .cs-brand-name {
-      font-size: 1.25rem;
-    }
-    .cs-tagline {
-      font-size: 0.65rem;
-    }
+  }
+  .cs-mobile-menu {
+    border-top: 1px solid #eee;
+    padding: 1rem;
+  }
+  .cs-mobile-nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .cs-mobile-nav-list li {
+    margin-bottom: 0.75rem;
   }
 </style>
 
 <script>
-  // Mobile menu toggle
-  const toggleBtn = document.querySelector('.cs-toggle');
+  const toggle = document.querySelector('.cs-toggle');
   const mobileMenu = document.querySelector('.cs-mobile-menu');
-  if (toggleBtn && mobileMenu) {
-    toggleBtn.addEventListener('click', () => {
-      const expanded = toggleBtn.getAttribute('aria-expanded') === 'true';
-      toggleBtn.setAttribute('aria-expanded', !expanded);
+  if (toggle && mobileMenu) {
+    toggle.addEventListener('click', () => {
       mobileMenu.hidden = !mobileMenu.hidden;
     });
   }
