@@ -1,149 +1,134 @@
 ---
-// src/components/Header/DynamicHeader.astro
+// src/components/Header/StaticHeader.astro
+import { Icon } from "astro-icon/components";
 import DarkModeToggle from "@components/DarkModeToggle/DarkModeToggle.astro";
 ---
 
-<header class="dynamic-header">
-  <div class="header-container">
+<header id="cs-navigation">
+  <div class="cs-container">
     <!-- Logo / Brand -->
-    <a href="/" class="brand-link" aria-label="Veritas GRC home">
-      <div class="brand">
-        <span class="brand-name">Veritas GRC</span>
-        <span class="tagline">Advancing Integrity in Clinical Research</span>
+    <a href="/" class="cs-logo" aria-label="Veritas GRC home page">
+      <div class="cs-brand">
+        <span class="cs-brand-name">Veritas GRC</span>
+        <span class="cs-tagline">Advancing Integrity in Clinical Research</span>
       </div>
     </a>
 
     <!-- Desktop Navigation -->
-    <nav class="desktop-nav" aria-label="Main">
-      <ul class="nav-list">
-        <li><a href="/" class="nav-link">Home</a></li>
-        <li><a href="/research" class="nav-link">Research</a></li>
-        <li><a href="/guides" class="nav-link">Guides</a></li>
-        <li><a href="/about" class="nav-link">About</a></li>
+    <nav class="cs-nav" aria-label="Primary">
+      <ul class="cs-nav-list">
+        <li><a href="/research" class="cs-nav-link">Research</a></li>
+        <li><a href="/guides" class="cs-nav-link">Guides</a></li>
+        <li><a href="/about" class="cs-nav-link">About</a></li>
       </ul>
     </nav>
 
-    <!-- Right side: dark mode toggle + mobile menu button -->
-    <div class="header-actions">
+    <!-- Right side items -->
+    <div class="cs-right-group">
       <DarkModeToggle />
-      <button class="mobile-toggle" aria-label="Menu" aria-expanded="false">
-        <span class="toggle-icon"></span>
+      <!-- Mobile menu toggle button -->
+      <button class="cs-toggle" aria-label="menu" aria-expanded="false">
+        <span class="cs-toggle-icon"></span>
       </button>
     </div>
   </div>
 
-  <!-- Mobile Navigation (hidden by default) -->
-  <div class="mobile-nav" hidden>
-    <ul class="mobile-nav-list">
-      <li><a href="/" class="mobile-nav-link">Home</a></li>
-      <li><a href="/research" class="mobile-nav-link">Research</a></li>
-      <li><a href="/guides" class="mobile-nav-link">Guides</a></li>
-      <li><a href="/about" class="mobile-nav-link">About</a></li>
-    </ul>
+  <!-- Mobile menu (hidden by default) -->
+  <div class="cs-mobile-menu" hidden>
+    <nav aria-label="Mobile">
+      <ul class="cs-mobile-nav-list">
+        <li><a href="/research">Research</a></li>
+        <li><a href="/guides">Guides</a></li>
+        <li><a href="/about">About</a></li>
+      </ul>
+    </nav>
   </div>
 </header>
 
 <style>
-  .dynamic-header {
-    background: var(--header-bg, #ffffff);
-    border-bottom: 1px solid var(--border-color, #e2e8f0);
-    position: sticky;
-    top: 0;
-    z-index: 100;
-  }
-
-  .header-container {
+  /* Reset / base */
+  .cs-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 1rem 2rem;
     max-width: 1280px;
     margin: 0 auto;
-    padding: 0.75rem 1.5rem;
   }
 
-  .brand-link {
+  /* Brand styling */
+  .cs-logo {
     text-decoration: none;
   }
-  .brand {
+  .cs-brand {
     display: flex;
     flex-direction: column;
     line-height: 1.2;
   }
-  .brand-name {
+  .cs-brand-name {
     font-size: 1.5rem;
     font-weight: 700;
-    color: var(--brand-color, #1e3a5f);
+    color: var(--text-color, #1a2c3e);
     letter-spacing: -0.02em;
   }
-  .tagline {
-    font-size: 0.7rem;
+  .cs-tagline {
+    font-size: 0.75rem;
     font-weight: 500;
-    color: var(--tagline-color, #4a6a8b);
-    letter-spacing: 0.3px;
+    color: var(--text-muted, #4a627a);
+    letter-spacing: 0.02em;
   }
-
+  /* Dark mode variables (example) */
   :root {
-    --header-bg: #ffffff;
-    --border-color: #e2e8f0;
-    --brand-color: #1e3a5f;
-    --tagline-color: #4a6a8b;
-    --nav-link: #1e293b;
-    --nav-link-hover: #2c7da0;
-    --mobile-bg: #ffffff;
+    --text-color: #1a2c3e;
+    --text-muted: #4a627a;
   }
-  .dark-mode {
-    --header-bg: #1e293b;
-    --border-color: #334155;
-    --brand-color: #f0f4f8;
-    --tagline-color: #b0c4de;
-    --nav-link: #cbd5e1;
-    --nav-link-hover: #81e6d9;
-    --mobile-bg: #1e293b;
+  :root.dark {
+    --text-color: #f0f4f8;
+    --text-muted: #b0c4de;
   }
 
-  .desktop-nav {
+  /* Desktop navigation */
+  .cs-nav-list {
     display: flex;
-  }
-  .nav-list {
-    display: flex;
-    gap: 1.5rem;
+    gap: 2rem;
     list-style: none;
     margin: 0;
     padding: 0;
   }
-  .nav-link {
+  .cs-nav-link {
     text-decoration: none;
     font-weight: 500;
-    color: var(--nav-link, #1e293b);
+    color: var(--text-color, #1a2c3e);
     transition: color 0.2s;
   }
-  .nav-link:hover {
-    color: var(--nav-link-hover, #2c7da0);
+  .cs-nav-link:hover {
+    color: #2c7da0;
   }
 
-  .header-actions {
+  /* Right group */
+  .cs-right-group {
     display: flex;
     align-items: center;
     gap: 1rem;
   }
 
-  .mobile-toggle {
+  /* Mobile toggle button */
+  .cs-toggle {
     display: none;
     background: none;
     border: none;
     cursor: pointer;
     padding: 0.5rem;
-    color: var(--brand-color, #1e3a5f);
   }
-  .toggle-icon {
+  .cs-toggle-icon {
     display: block;
     width: 24px;
     height: 2px;
     background: currentColor;
     position: relative;
   }
-  .toggle-icon::before,
-  .toggle-icon::after {
+  .cs-toggle-icon::before,
+  .cs-toggle-icon::after {
     content: '';
     position: absolute;
     width: 24px;
@@ -151,19 +136,20 @@ import DarkModeToggle from "@components/DarkModeToggle/DarkModeToggle.astro";
     background: currentColor;
     left: 0;
   }
-  .toggle-icon::before {
+  .cs-toggle-icon::before {
     top: -8px;
   }
-  .toggle-icon::after {
+  .cs-toggle-icon::after {
     bottom: -8px;
   }
 
-  .mobile-nav {
-    background: var(--mobile-bg, #ffffff);
-    border-top: 1px solid var(--border-color, #e2e8f0);
-    padding: 1rem 1.5rem;
+  /* Mobile menu */
+  .cs-mobile-menu {
+    background: var(--bg-mobile, #ffffff);
+    border-top: 1px solid #e2e8f0;
+    padding: 1rem;
   }
-  .mobile-nav-list {
+  .cs-mobile-nav-list {
     list-style: none;
     margin: 0;
     padding: 0;
@@ -171,42 +157,40 @@ import DarkModeToggle from "@components/DarkModeToggle/DarkModeToggle.astro";
     flex-direction: column;
     gap: 1rem;
   }
-  .mobile-nav-link {
+  .cs-mobile-nav-list a {
     text-decoration: none;
-    color: var(--nav-link, #1e293b);
+    color: var(--text-color, #1a2c3e);
     font-weight: 500;
     display: block;
     padding: 0.5rem 0;
   }
-  .mobile-nav-link:hover {
-    color: var(--nav-link-hover, #2c7da0);
-  }
 
+  /* Responsive breakpoint */
   @media (max-width: 768px) {
-    .desktop-nav {
+    .cs-nav {
       display: none;
     }
-    .mobile-toggle {
+    .cs-toggle {
       display: block;
     }
-    .brand-name {
+    .cs-brand-name {
       font-size: 1.25rem;
     }
-    .tagline {
-      font-size: 0.6rem;
+    .cs-tagline {
+      font-size: 0.65rem;
     }
   }
 </style>
 
 <script>
-  const toggleBtn = document.querySelector('.mobile-toggle');
-  const mobileNav = document.querySelector('.mobile-nav');
-  if (toggleBtn && mobileNav) {
+  // Mobile menu toggle
+  const toggleBtn = document.querySelector('.cs-toggle');
+  const mobileMenu = document.querySelector('.cs-mobile-menu');
+  if (toggleBtn && mobileMenu) {
     toggleBtn.addEventListener('click', () => {
       const expanded = toggleBtn.getAttribute('aria-expanded') === 'true';
       toggleBtn.setAttribute('aria-expanded', !expanded);
-      mobileNav.hidden = !mobileNav.hidden;
+      mobileMenu.hidden = !mobileMenu.hidden;
     });
   }
 </script>
-
