@@ -1,8 +1,8 @@
 # Use DecapBridge auth (required)
 backend:
-  name: git-gateway
-  repo: CodeStitchOfficial/Intermediate-Astro-Decap-CMS
-  branch: main
+  name: github
+  repo: joashgombe10/kenya-onestop-research-guide # Your repository's full name
+  branch: main # The branch to save to; 'main' is usually correct
   identity_url: https://auth.decapbridge.com/sites/1ea1e8dd-3c54-40d7-bbe1-74af6c8f16f6
   gateway_url: https://gateway.decapbridge.com
 
