@@ -31,17 +31,16 @@ import DarkModeToggle from "@components/DarkModeToggle/DarkModeToggle.astro";
 
   <div class="mobile-nav" hidden>
     <ul class="mobile-nav-list">
-      <li><a href="/">Home</a></li>
-      <li><a href="/research">Research</a></li>
-      <li><a href="/guides">Guides</a></li>
-      <li><a href="/services">Services</a></li>   <!-- NEW -->
-      <li><a href="/about">About</a></li>
+      <li><a href="/" class="mobile-nav-link">Home</a></li>
+      <li><a href="/research" class="mobile-nav-link">Research</a></li>
+      <li><a href="/guides" class="mobile-nav-link">Guides</a></li>
+      <li><a href="/services" class="mobile-nav-link">Services</a></li>
+      <li><a href="/about" class="mobile-nav-link">About</a></li>
     </ul>
   </div>
 </header>
 
 <style>
-  /* Your existing styles remain exactly the same – no changes needed */
   .dynamic-header { background: var(--header-bg, #ffffff); border-bottom: 1px solid var(--border-color, #e2e8f0); position: sticky; top: 0; z-index: 100; }
   .header-container { display: flex; justify-content: space-between; align-items: center; max-width: 1280px; margin: 0 auto; padding: 0.75rem 1.5rem; }
   .brand-link { text-decoration: none; }
@@ -77,13 +76,26 @@ import DarkModeToggle from "@components/DarkModeToggle/DarkModeToggle.astro";
 </style>
 
 <script>
-  const toggleBtn = document.querySelector('.mobile-toggle');
-  const mobileNav = document.querySelector('.mobile-nav');
-  if (toggleBtn && mobileNav) {
-    toggleBtn.addEventListener('click', () => {
-      const expanded = toggleBtn.getAttribute('aria-expanded') === 'true';
-      toggleBtn.setAttribute('aria-expanded', !expanded);
-      mobileNav.hidden = !mobileNav.hidden;
-    });
+  function setupHeader() {
+    const toggleBtn = document.querySelector('.mobile-toggle');
+    const mobileNav = document.querySelector('.mobile-nav');
+    
+    if (toggleBtn && mobileNav) {
+      // Remove any existing listener to prevent stacking duplicate events
+      toggleBtn.replaceWith(toggleBtn.cloneNode(true));
+      const newToggleBtn = document.querySelector('.mobile-toggle');
+      
+      newToggleBtn.addEventListener('click', () => {
+        const expanded = newToggleBtn.getAttribute('aria-expanded') === 'true';
+        newToggleBtn.setAttribute('aria-expanded', !expanded);
+        mobileNav.hidden = !mobileNav.hidden;
+      });
+    }
   }
+
+  // Initialize on first load
+  setupHeader();
+
+  // Re-run the script after Astro client-side page transitions
+  document.addEventListener('astro:after-swap', setupHeader);
 </script>
