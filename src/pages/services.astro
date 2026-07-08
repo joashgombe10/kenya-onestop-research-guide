@@ -1,61 +1,20 @@
 ---
-import Layout from '../layouts/Layout.astro';
+// Bulletproof version - no external layout imports required
 ---
-
-<Layout title="Our Services | Veritas GRC">
-  <main class="services-container">
-    <header class="services-hero">
-      <h1>Our Service Divisions</h1>
-      <p class="subtitle">Comprehensive governance, risk, and compliance solutions advancing integrity in clinical research.</p>
-    </header>
-
-    <div class="services-grid">
-      <!-- Division 1 -->
-      <section class="service-card">
-        <div class="card-icon">⚖️</div>
-        <h2>Veritas GRC Ethics</h2>
-        <p>Expert research ethics consultations, streamlined IRB submissions, and rigorous ethical oversight designed specifically for clinical trials.</p>
-        <a href="/services/ethics" class="service-btn">Explore Ethics Services →</a>
-      </section>
-
-      <!-- Division 2 -->
-      <section class="service-card">
-        <div class="card-icon">🎓</div>
-        <h2>Veritas GRC Academy</h2>
-        <p>Professional training programs, specialized certifications, and interactive workshops centered on GCP, regulatory compliance, and research integrity.</p>
-        <a href="/services/academy" class="service-btn">Explore Academy Programs →</a>
-      </section>
-
-      <!-- Division 3 -->
-      <section class="service-card">
-        <div class="card-icon">💻</div>
-        <h2>Veritas GRC Digital</h2>
-        <p>Modern eClinical solutions, cloud-based digital QMS implementations, and advanced software tools built for compliant data management.</p>
-        <a href="/services/digital" class="service-btn">Explore Digital Solutions →</a>
-      </section>
-    </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Our Services | Veritas GRC</title>
+</head>
+<body>
+  <main>
+    <h1>Our Service Divisions</h1>
+    <section class="service-card">
+      <h2>Veritas GRC Ethics</h2>
+      <p>Expert research ethics, IRB submissions, and regulatory oversight.</p>
+      <a href="/services/ethics">Explore Ethics Services →</a>
+    </section>
   </main>
-</Layout>
-
-<style>
-  .services-container { max-width: 1200px; margin: 0 auto; padding: 4rem 1.5rem; font-family: system-ui, sans-serif; }
-  .services-hero { text-align: center; margin-bottom: 4rem; }
-  .services-hero h1 { font-size: 2.75rem; color: #1e3a5f; margin-bottom: 1rem; font-weight: 800; }
-  .services-hero .subtitle { font-size: 1.25rem; color: #4a6a8b; max-width: 700px; margin: 0 auto; line-height: 1.6; }
-  
-  .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; }
-  .service-card { background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 2.5rem 2rem; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05); display: flex; flex-direction: column; justify-content: space-between; transition: transform 0.2s, box-shadow 0.2s; }
-  .service-card:hover { transform: translateY(-4px); box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); }
-  
-  .card-icon { font-size: 2.5rem; margin-bottom: 1rem; }
-  .service-card h2 { font-size: 1.5rem; color: #1e3a5f; margin-bottom: 1rem; font-weight: 700; }
-  .service-card p { color: #4a5568; line-height: 1.6; margin-bottom: 1.5rem; font-size: 0.95rem; }
-  
-  .service-btn { display: inline-block; text-align: center; padding: 0.75rem 1rem; background: #1e3a5f; color: #ffffff; text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 0.9rem; transition: background 0.2s; margin-top: auto; }
-  .service-btn:hover { background: #2c7da0; }
-
-  @media (max-width: 768px) {
-    .services-hero h1 { font-size: 2.2rem; }
-    .services-container { padding: 2.5rem 1rem; }
-  }
-</style>
+</body>
+</html>
