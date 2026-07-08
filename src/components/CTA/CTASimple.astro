@@ -1,155 +1,143 @@
 ---
-/**
- * * Simplified CTA component using Astro's built-in Picture component
- **/
-
-// Utils
-import { Picture } from "astro:assets";
-
-// Images
-import ctaImage from "@assets/images/CTA/cabinets2.jpg";
+// Call To Action Component for Veritas GRC
 ---
 
-<section id="cta">
-	<div class="container">
-		<h2 class="title">
-			Get It Done
-			<br />
-			With Us Today
-		</h2>
-		<p>Say something catchy, informative, and encouraging to click the button to go to the contact page. I like to add these to the bottom of all pages.</p>
-		<a href="/contact/" class="cs-button-solid">Get an Estimate Now</a>
-	</div>
-	<Picture src={ctaImage} alt="" layout="full-width" formats={["avif", "webp"]} pictureAttributes={{ class: "cs-picture" }} />
+<section class="veritas-cta-section" style="max-width: 1000px; margin: 6rem auto; padding: 0 1.5rem; font-family: system-ui, -apple-system, sans-serif; box-sizing: border-box;">
+  <div class="veritas-cta-card">
+    <div class="veritas-cta-content">
+      <h2 class="veritas-cta-title">Ready to Elevate Your Clinical Research Governance?</h2>
+      <p class="veritas-cta-description">
+        Partner with Veritas GRC to proactively mitigate regulatory risks, protect clinical trial participant data, and establish flawless data integrity frameworks.
+      </p>
+    </div>
+    <div class="veritas-cta-actions">
+      <a href="/contact" class="v-btn-p">Consult Our Advisors</a>
+      <a href="/services" class="v-btn-s">Explore Solutions</a>
+    </div>
+  </div>
 </section>
 
-<style lang="less">
-	/* Mobile */
-	@media only screen and (min-width: 0em) {
-		#cta {
-			padding: (50/16rem) 0;
-			position: relative;
+<style>
+/* High-specificity class overrides to isolate against third-party global stylesheets */
+.veritas-cta-card {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #1a3e6f 100%) !important;
+  padding: 3.5rem 3rem !important;
+  border-radius: 1.25rem !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 3rem !important;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04) !important;
+  position: relative !important;
+  overflow: hidden !important;
+  box-sizing: border-box !important;
+  width: 100% !important;
+}
 
-			&:before {
-				content: "";
-				width: 100%;
-				height: 100%;
-				background: #000;
-				opacity: 0.7;
-				display: block;
-				position: absolute;
-				top: 0;
-				left: 0;
-				z-index: -1;
-			}
+.veritas-cta-card::after {
+  content: "";
+  position: absolute;
+  bottom: -50px;
+  right: -50px;
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(44, 90, 158, 0.25) 0%, transparent 70%);
+  filter: blur(20px);
+  pointer-events: none;
+}
 
-			.container {
-				text-align: center;
-			}
+.veritas-cta-content {
+  flex: 1 1 60% !important;
+  z-index: 1 !important;
+}
 
-			.title {
-				font-size: ~"min(9vw, 3rem)";
-				font-weight: 900;
-				line-height: 58/48;
-				text-align: center;
-				margin-bottom: (36/16rem);
-				color: #fff;
-				position: relative;
-			}
+.veritas-cta-title {
+  color: #ffffff !important;
+  font-size: 2rem !important;
+  font-weight: 700 !important;
+  line-height: 1.3 !important;
+  margin: 0 0 1rem 0 !important;
+  letter-spacing: -0.01em !important;
+}
 
-			p {
-				text-align: center;
-				width: 96%;
-				max-width: (598/16rem);
-				margin: auto;
-				margin-bottom: (36/16rem);
-				color: #fff;
-				opacity: 1;
-			}
+.veritas-cta-description {
+  color: #94a3b8 !important;
+  font-size: 1.1rem !important;
+  line-height: 1.6 !important;
+  margin: 0 !important;
+}
 
-			.cs-picture {
-				width: 100%;
-				height: 100%;
-				object-fit: cover;
-				position: absolute;
-				top: 0;
-				left: 0;
-				z-index: -2;
+.veritas-cta-actions {
+  flex: 0 0 auto !important;
+  display: flex !important;
+  gap: 1rem !important;
+  z-index: 1 !important;
+}
 
-				img {
-					width: 100%;
-					height: 100%;
-					object-fit: cover;
-				}
-			}
-		}
-	}
+/* Rebuilt and reinforced interactive layout links */
+.v-btn-p {
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+  padding: 0.85rem 1.75rem !important;
+  border-radius: 0.5rem !important;
+  font-weight: 600 !important;
+  text-decoration: none !important;
+  font-size: 0.95rem !important;
+  transition: background-color 0.2s ease, transform 0.1s ease !important;
+  white-space: nowrap !important;
+  display: inline-block !important;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1) !important;
+  border: none !important;
+  box-sizing: border-box !important;
+}
 
-	/* Small Desktop */
-	@media only screen and (min-width: 64em) {
-		#cta {
-			padding: (168/16rem) 0;
-		}
-	}
+.v-btn-p:hover {
+  background-color: #f1f5f9 !important;
+  transform: translateY(-1px) !important;
+}
 
-	/* Large Desktop */
-	@media only screen and (min-width: 1300px) {
-		#cta {
-			margin-top: (100/16rem);
-			position: relative;
-			&:before {
-				display: none;
-			}
-			&:after {
-				content: "";
-				// width: (2000/16rem);
-				width: 100%; /* a fixed width causes overflow on desktop */
-				height: (1108/16rem);
-				background: url("/src/icons/cta-squares.svg");
-				background-position: center;
-				background-size: contain;
-				background-repeat: no-repeat;
-				opacity: 1;
-				display: block;
-				position: absolute;
-				bottom: 0;
-				left: 50%;
-				z-index: -3;
-				transform: translateX(-50%);
-			}
-			.container {
-				width: 90.0625%;
-				margin: auto;
-			}
+.v-btn-s {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  color: #ffffff !important;
+  padding: 0.85rem 1.75rem !important;
+  border-radius: 0.5rem !important;
+  font-weight: 600 !important;
+  text-decoration: none !important;
+  font-size: 0.95rem !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  transition: background-color 0.2s ease, border-color 0.2s ease !important;
+  white-space: nowrap !important;
+  display: inline-block !important;
+  box-sizing: border-box !important;
+}
 
-			.cs-picture {
-				width: 90.0625%;
-				left: 50%;
-				transform: translateX(-50%);
-				&:before {
-					content: "";
-					width: 100%;
-					height: 100%;
-					background: #000;
-					opacity: 0.7;
-					display: block;
-					position: absolute;
-					top: 0;
-					left: 0;
-					z-index: 1;
-				}
-			}
-		}
-	}
+.v-btn-s:hover {
+  background-color: rgba(255, 255, 255, 0.15) !important;
+  border-color: rgba(255, 255, 255, 0.4) !important;
+}
 
-	/* Dark Mode */
-	@media only screen and (min-width: 0em) {
-		body.dark-mode {
-			#cta {
-				&:after {
-					display: none;
-				}
-			}
-		}
-	}
+/* Responsive breakout layout */
+@media (max-width: 868px) {
+  .veritas-cta-card {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 2rem !important;
+    padding: 2.5rem 2rem !important;
+  }
+  
+  .veritas-cta-title {
+    font-size: 1.75rem !important;
+  }
+
+  .veritas-cta-actions {
+    width: 100% !important;
+    flex-direction: column !important;
+  }
+
+  .v-btn-p, .v-btn-s {
+    text-align: center !important;
+    width: 100% !important;
+  }
+}
 </style>

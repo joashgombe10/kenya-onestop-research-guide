@@ -1,22 +1,98 @@
 ---
-// Utils
-import { getImage } from "astro:assets";
-
 // Components
 import BaseLayout from "@layouts/BaseLayout.astro";
-import Banner from "@components/Banner/Banner.astro";
 import FAQ from "@components/FAQ/FAQ.astro";
-import SideBySide from "@components/SideBySide/SideBySide.astro";
 import CTA from "@components/CTA/CTASimple.astro";
-
-// Images
-import landingImage from "@assets/images/landing.jpg";
-const optimizedImage = await getImage({ src: landingImage, format: "webp" });
 ---
 
-<BaseLayout title="About" description="Meta description for the page" heroImage={optimizedImage}>
-	<Banner title="About Us" image={optimizedImage} />
-	<SideBySide />
-	<FAQ />
-	<CTA />
+<BaseLayout title="About Us | Veritas GRC" description="The story, mission, and core values driving Veritas GRC's clinical research governance and compliance solutions.">
+  
+  <!-- CSS Clinical Banner replaces the old image component -->
+  <div class="clinical-banner">
+    <div class="banner-overlay"></div>
+    <div class="dna-grid-lines"></div>
+    <h1 class="banner-text">The Veritas GRC Story</h1>
+  </div>
+  
+  <main class="about-container" style="max-width: 1000px; margin: 4rem auto; padding: 0 1.5rem;">
+    <!-- Core Story Narrative -->
+    <section class="story-block" style="margin-bottom: 4rem; line-height: 1.8; font-size: 1.15rem; color: #333;">
+      <h2 style="color: #1a3e6f; font-size: 2rem; font-weight: bold; margin-bottom: 1.5rem;">Who We Are</h2>
+      <p style="margin-bottom: 1.5rem;">Veritas GRC emerged from a critical realization within the clinical development ecosystem: true operational excellence cannot exist without absolute regulatory and ethical integrity. We operate at the intersection of complex clinical research and rigorous governance, risk management, and compliance frameworks.</p>
+      <p>Based in Kenya and extending strategic expertise across global networks, we empower institutional sponsors, pharmaceutical developers, and research investigators to navigate modern regulatory demands with absolute precision.</p>
+    </section>
+
+    <!-- Mission & Pillars Flex Grid Layout -->
+    <div class="values-flex" style="display: flex; gap: 2rem; margin-bottom: 4rem; flex-wrap: wrap;">
+      <div class="value-card" style="flex: 1 1 300px; background: #f8fafc; border: 1px solid #e2e8f0; padding: 2rem; border-radius: 1rem;">
+        <h3 style="color: #1a3e6f; font-size: 1.4rem; font-weight: 600; margin-bottom: 0.75rem; margin-top: 0;">Our Mission</h3>
+        <p style="color: #4a5568; line-height: 1.6; margin: 0; font-size: 1rem;">To deliver world-class research governance infrastructure and strategic advisory solutions that safeguard clinical trial participants while accelerating breakthrough scientific discoveries.</p>
+      </div>
+
+      <div class="value-card" style="flex: 1 1 300px; background: #f8fafc; border: 1px solid #e2e8f0; padding: 2rem; border-radius: 1rem;">
+        <h3 style="color: #1a3e6f; font-size: 1.4rem; font-weight: 600; margin-bottom: 0.75rem; margin-top: 0;">Our Core Pillars</h3>
+        <p style="color: #4a5568; line-height: 1.6; margin: 0; font-size: 1rem;">Uncompromising ethical oversight, total regulatory alignment, advanced data precision, and sustainable capacity building across the clinical research ecosystem.</p>
+      </div>
+    </div>
+  </main>
+
+  <FAQ />
+  <CTA />
 </BaseLayout>
+
+<style>
+.clinical-banner {
+  position: relative;
+  width: 100%;
+  height: 350px; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 40%, #1a3e6f 100%);
+}
+
+.banner-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, transparent 20%, rgba(15, 23, 42, 0.6) 100%);
+  z-index: 1;
+}
+
+/* Refined DNA Grid Lines with a vignette mask for soft edges */
+.dna-grid-lines {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  opacity: 0.14; /* Lowered opacity for high-end professional watermark style */
+  background-size: 160px 80px;
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%27160%27%20height%3D%2780%27%20viewBox%3D%270%200%20160%2080%27%3E%3Cg%20stroke%3D%27white%27%20stroke-width%3D%271.2%27%20fill%3D%27none%27%3E%3Cpath%20d%3D%27M0%2C40%20Q40%2C0%2080%2C40%20T160%2C40%27%20%2F%3E%3Cpath%20d%3D%27M0%2C40%20Q40%2080%2080%2C40%20T160%2C40%27%20%2F%3E%3Cpath%20d%3D%27M20%2C13%20V67%27%20stroke-dasharray%3D%273%2C3%27%20opacity%3D%270.4%27%20%2F%3E%3Cpath%20d%3D%27M40%2C5%20V75%27%20stroke-dasharray%3D%273%2C3%27%20opacity%3D%270.4%27%20%2F%3E%3Cpath%20d%3D%27M60%2C13%20V67%27%20stroke-dasharray%3D%273%2C3%27%20opacity%3D%270.4%27%20%2F%3E%3Cpath%20d%3D%27M100%2C13%20V67%27%20stroke-dasharray%3D%273%2C3%27%20opacity%3D%270.4%27%20%2F%3E%3Cpath%20d%3D%27M120%2C5%20V75%27%20stroke-dasharray%3D%273%2C3%27%20opacity%3D%270.4%27%20%2F%3E%3Cpath%20d%3D%27M140%2C13%20V67%27%20stroke-dasharray%3D%273%2C3%27%20opacity%3D%270.4%27%20%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E");
+  
+  /* Blends out the edges of the grid pattern nicely */
+  -webkit-mask-image: radial-gradient(circle, black 40%, transparent 90%);
+  mask-image: radial-gradient(circle, black 40%, transparent 90%);
+}
+
+.clinical-banner::after {
+  content: "";
+  position: absolute;
+  top: -20%;
+  right: -10%;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(44, 90, 158, 0.4) 0%, transparent 70%);
+  filter: blur(40px);
+  z-index: 1;
+}
+
+.banner-text {
+  position: relative;
+  z-index: 3;
+  color: #ffffff;
+  font-size: 3rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+</style>
